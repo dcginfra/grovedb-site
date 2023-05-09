@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="style/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>GroveDB</title>
+</head>
+<body>
+  <header>
+    <nav class="nav toggle">
+      <div class="header-menu">
+        <div class="logo-header logo-mobile">
+          <a href="/"><img src="img/grovedb-logo.svg"></a>
+        </div>
+        <div class="nav-mobile"><a id="navbar-toggle"><span></span></a></div>
+        <ul class="nav-list">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Comparison Table</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <div class="header-social mobile">
+            <a href="/">
+                <div class="icon-el twitter"></div>
+            </a>
+            <a href="/">
+                <div class="icon-el github"></div>
+            </a>
+        </div>
+        </ul>
+        <div class="header-social desktop">
+            <a href="/">
+                <div class="icon-el twitter"></div>
+            </a>
+            <a href="/">
+                <div class="icon-el github"></div>
+            </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="main-banner">
+    <div class="banner-background">
+      <div class="text-banner">
+        <h1>GroveDB is the first database to support cryptographic proofs for complex queries</h1>
+        <p>Store and retrieve data with absolute confidence.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section section-one">
+    <h2>GroveDB Features</h2>
+    <div class="block-icons">
+        <div class="feature-block">
+            <h3>Broad</h3>
+            <div class="icon-imgs">
+                <img src="img/icon-1.svg">
+                <div class="icon-text">
+                    <h6>Trustless</h6>
+                    <p>All query results can be cryptographically proven</p>
+                </div>
+            </div>
+            <div class="icon-imgs">
+                <img src="img/icon-2.svg">
+                <div class="icon-text">
+                    <h6>Efficient</h6>
+                    <p>Proofs are efficient in terms of both size and time</p>
+                </div>
+            </div>
+            <div class="icon-imgs">
+                <img src="img/icon-3.svg">
+                <div class="icon-text">
+                    <h6>Comprehensive</h6>
+                    <p>Support for secondary indexes and complex queries</p>
+                </div>
+            </div>
+        </div>
+            <div class="feature-block">
+                <h3>Broad</h3>
+                <div class="icon-imgs">
+                    <img src="img/icon-4.svg">
+                    <div class="icon-text">
+                        <h6>Complex query proofs</h6>
+                        <p>Proofs for much more than just simple gets</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-5.svg">
+                    <div class="icon-text">
+                        <h6>Non-inclusion proofs</h6>
+                        <p>Verify the absence of items as well as their presence</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-6.svg">
+                    <div class="icon-text">
+                        <h6>Combinable tree types</h6>
+                        <p>Different tree types, such as sum trees, can be used within the same graph</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-7.svg">
+                    <div class="icon-text">
+                        <h6>Chunking</h6>
+                        <p>Quickly and trustlessly replicate state from one node to another</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-8.svg">
+                    <div class="icon-text">
+                        <h6>Operation costs</h6>
+                        <p>Get the cost for operations in terms of storage and computation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+  <div class="section section-two">
+    <div class="info-blocks">
+        <div class="index-block">
+            <span class="colored-text">Secondary Indexes</span>
+            <h4>What are secondary indexes?</h4>
+            <a href="/"><img src="img/plus-icon.svg"></a>
+        </div>
+        <div class="index-block">
+            <span class="colored-text">Cryptographic Proofs</span>
+            <h4>What are cryptographic proofs?</h4>
+            <a href="/"><img src="img/plus-icon.svg"></a>
+        </div>
+    </div>
+    <div class="block-design">
+        <div class="title-text">
+          <span class="colored-text">Design</span>
+          <h2>How is GroveDB’s design unique?</h2>
+        </div>
+        <div class="text-p">
+          <p>GroveDB is the first production-level implementation of a hierarchical authenticated data structure (HADS), largely inspired by <a href="https://eprint.iacr.org/2015/351.pdf" target="_blank">Database Outsourcing with Hierarchical Authenticated Data Structures</a>.</p>
+        </div>
+      </div>
+  </div>
+  <div class="section section-three">
+    <div class="block-hads">
+        <div class="block-text">
+            <span class="colored-text">HADS</span>
+            <h2>What is a HADS?</h2>
+            <p>In GroveDB, additional subtrees are automatically created for secondary indexes, and each secondary index subtree has additional subtrees for each unique value, creating a hierarchy of trees and items.</p>
+            <p>This architecture combined with Merk allows for cryptographic proofs to be provided with secondary index query results efficiently.</p>
+            <p>For example, say there is a “Restaurants Who Accept Dash” contract with a “Restaurants” document type. One of the secondary indexes for this document type might be “City”, which indicates which city the restaurant is located in.</p>
+            <p>This “City” secondary index would have its own subtree which stores all of the city names for which there are restaurants in the contract. Each city would then have its own subtree, containing the restaurants in that city.</p>
+        </div>
+        <div class="benefit-block">
+            <h5>Benefits of a HADS</h5>
+            <div class="list">
+                <img src="img/icon-9.svg"><p>Efficient proof generation for complex queries</p>
+            </div>
+            <div class="list">
+                <img src="img/icon-9.svg"><p>Efficient handling of duplicate values</p>
+            </div>
+            <div class="list">
+                <img src="img/icon-9.svg"><p>Support for compound indexes</p>
+            </div>
+            <div class="list">
+                <img src="img/icon-9.svg"><p>Multiple tree types may be used in the same “grove”</p>
+            </div>
+            <div class="note-block">
+                <p><strong>Note</strong> that the secondary index subtrees contain references to items rather than the items themselves in order to save on storage space.</p>
+           </div>
+        </div>
+    </div>
+  </div>
+  <div class="section section-four">
+    <span class="colored-text">Merk</span>
+    <h2>What is Merk?</h2>
+    <p>By default, all trees in GroveDB are Merk trees.</p>
+    <p>Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
+    <a class="button" href="">Read Documentation</a>
+    <h5>Features of the Merk trees</h5>
+    <div class="flex-blocks">
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Fast reads/writes</h6>
+                <p>Reads have no overhead compared to a normal RocksDB store, and writes are optimized for batch operations (e.g. blocks in a blockchain).</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Fast proof generation</h6>
+                <p>Since Merk implements an AVL tree rather than a trie, it is very efficient to create and verify proofs for ranges of keys.</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Concurrency</h6>
+                <p>Unlike most other Merkle stores, all operations utilize all available cores, giving huge performance gains and allowing nodes to scale along with Moore's Law.</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Replication</h6>
+                <p>The tree is optimized to efficiently build proofs of large chunks, allowing for nodes to download the entire state (e.g. "state syncing").</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Checkpointing</h6>
+                <p>Merk can create checkpoints on disk (an immutable view of the entire store at a certain point in time) without blocking, so there are no delays in availability or liveness.</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Web-friendly</h6>
+                <p>Being written in Rust means it is easy to run the proof-verification code in browsers with WebAssembly, allowing for light-clients that can verify data for themselves.</p>
+            </div>
+        </div>
+        <div class="checkmark-block">
+            <img src="img/icon-9.svg">
+            <div class="icon-text">
+                <h6>Fits any Profile</h6>
+                <p>Performant on RAM-constrained Raspberry Pi's and beefy validator rigs alike.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="section section-five">
+    <div class="table-block">
+        <h2>Comparison Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>GroveDB</th>
+                    <th>ImmuDB</th>
+                    <th>ProvenDB</th>
+                    <th>Trillian</th>
+                    <th>BigchainDB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inclusion Proofs</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="plus" data-label="ImmuDB">+</td>
+                    <td class="plus" data-label="ProvenDB">+</td>
+                    <td class="plus" data-label="Trillian">+</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td>Non-Inclusion Proofs</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="minus" data-label="ImmuDB">-</td>
+                    <td class="minus" data-label="ProvenDB">-</td>
+                    <td class="minus" data-label="Trillian">-</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td>Complex Queries</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="plus" data-label="ImmuDB">+</td>
+                    <td class="plus" data-label="ProvenDB">+</td>
+                    <td class="plus" data-label="Trillian">+</td>
+                    <td class="plus" data-label="BigchainDB">+</td>
+                </tr>
+                <tr>
+                    <td>Query Proofs</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="minus" data-label="ImmuDB">-</td>
+                    <td class="minus" data-label="ProvenDB">-</td>
+                    <td class="minus" data-label="Trillian">-</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td>Data Immutability</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="plus" data-label="ImmuDB">+</td>
+                    <td class="plus" data-label="ProvenDB">+</td>
+                    <td class="plus" data-label="Trillian">+</td>
+                    <td class="plus" data-label="BigchainDB">+</td>
+                </tr>
+                <tr>
+                    <td>Data Mutability</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="minus" data-label="ImmuDB">-</td>
+                    <td class="minus" data-label="ProvenDB">-</td>
+                    <td class="minus" data-label="Trillian">-</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td>Operation Costs</td>
+                    <td class="plus" data-label="GroveDB">+</td>
+                    <td class="minus" data-label="ImmuDB">-</td>
+                    <td class="minus" data-label="ProvenDB">-</td>
+                    <td class="minus" data-label="Trillian">-</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td>Language</td>
+                    <td class="text" data-label="GroveDB">Rust</td>
+                    <td class="text" data-label="ImmuDB">Go</td>
+                    <td class="text" data-label="ProvenDB">JavaScript</td>
+                    <td class="text" data-label="Trillian">Go</td>
+                    <td class="text" data-label="BigchainDB">Python</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <footer class="footer" role="contentinfo">
+    <div class="block-footer">
+        <p class="copy">© 2023 GroveDB</p>
+        <p>GroveDB is the first database to support cryptographic<br> proofs for complex queries</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type='text/javascript' src='js/main.js'></script>
+</body>
+
+</html>
