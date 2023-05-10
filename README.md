@@ -1,2 +1,2 @@
-# GroveDB-website
-Grove Data Base Website
+# grovedb-site
+Website for grovedb.org
