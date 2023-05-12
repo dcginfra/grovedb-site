@@ -16,8 +16,8 @@
         </div>
         <div class="nav-mobile"><a id="navbar-toggle"><span></span></a></div>
         <ul class="nav-list">
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Comparison Table</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#table">Comparison Table</a></li>
           <li><a href="#">Documentation</a></li>
           <li><a href="#">Tutorials</a></li>
           <div class="header-social mobile">
@@ -51,7 +51,7 @@
   <div class="section section-one">
     <h2>GroveDB Features</h2>
     <div class="block-icons">
-        <div class="feature-block">
+        <div id="features" class="feature-block">
             <h3>Broad</h3>
             <div class="icon-imgs">
                 <img src="img/icon-1.svg">
@@ -169,66 +169,68 @@
     </div>
   </div>
   <div class="section section-four">
-    <span class="colored-text">Merk</span>
-    <h2>What is Merk?</h2>
-    <p>By default, all trees in GroveDB are Merk trees.</p>
-    <p>Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
-    <a class="button" href="">Read Documentation</a>
-    <h5>Features of the Merk trees</h5>
-    <div class="flex-blocks">
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Fast reads/writes</h6>
-                <p>Reads have no overhead compared to a normal RocksDB store, and writes are optimized for batch operations (e.g. blocks in a blockchain).</p>
+    <div class="merk-block">
+        <span class="colored-text">Merk</span>
+        <h2>What is Merk?</h2>
+        <p>By default, all trees in GroveDB are Merk trees.</p>
+        <p>Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
+        <a class="button" href="">Read Documentation</a>
+        <h5>Features of the Merk trees</h5>
+        <div class="flex-blocks">
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Fast reads/writes</h6>
+                    <p>Reads have no overhead compared to a normal RocksDB store, and writes are optimized for batch operations (e.g. blocks in a blockchain).</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Fast proof generation</h6>
-                <p>Since Merk implements an AVL tree rather than a trie, it is very efficient to create and verify proofs for ranges of keys.</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Fast proof generation</h6>
+                    <p>Since Merk implements an AVL tree rather than a trie, it is very efficient to create and verify proofs for ranges of keys.</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Concurrency</h6>
-                <p>Unlike most other Merkle stores, all operations utilize all available cores, giving huge performance gains and allowing nodes to scale along with Moore's Law.</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Concurrency</h6>
+                    <p>Unlike most other Merkle stores, all operations utilize all available cores, giving huge performance gains and allowing nodes to scale along with Moore's Law.</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Replication</h6>
-                <p>The tree is optimized to efficiently build proofs of large chunks, allowing for nodes to download the entire state (e.g. "state syncing").</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Replication</h6>
+                    <p>The tree is optimized to efficiently build proofs of large chunks, allowing for nodes to download the entire state (e.g. "state syncing").</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Checkpointing</h6>
-                <p>Merk can create checkpoints on disk (an immutable view of the entire store at a certain point in time) without blocking, so there are no delays in availability or liveness.</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Checkpointing</h6>
+                    <p>Merk can create checkpoints on disk (an immutable view of the entire store at a certain point in time) without blocking, so there are no delays in availability or liveness.</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Web-friendly</h6>
-                <p>Being written in Rust means it is easy to run the proof-verification code in browsers with WebAssembly, allowing for light-clients that can verify data for themselves.</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Web-friendly</h6>
+                    <p>Being written in Rust means it is easy to run the proof-verification code in browsers with WebAssembly, allowing for light-clients that can verify data for themselves.</p>
+                </div>
             </div>
-        </div>
-        <div class="checkmark-block">
-            <img src="img/icon-9.svg">
-            <div class="icon-text">
-                <h6>Fits any Profile</h6>
-                <p>Performant on RAM-constrained Raspberry Pi's and beefy validator rigs alike.</p>
+            <div class="checkmark-block">
+                <img src="img/icon-9.svg">
+                <div class="icon-text">
+                    <h6>Fits any Profile</h6>
+                    <p>Performant on RAM-constrained Raspberry Pi's and beefy validator rigs alike.</p>
+                </div>
             </div>
         </div>
     </div>
-  </div>
-  <div class="section section-five">
-    <div class="table-block">
+</div>
+<div class="section section-five">
+    <div id="table" class="table-block">
         <h2>Comparison Table</h2>
         <table>
             <thead>
