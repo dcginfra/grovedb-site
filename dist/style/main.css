@@ -194,7 +194,7 @@ footer a {color: #fff;}
   .block-img {width: 100%;}
   .header-social.desktop{display: none;}
   .header-social.mobile{display: block;}
-  .section{margin: 20px auto;}
+  .section{margin: 20px auto;padding: 0 10px;}
 @media screen and (min-width:800px) {
   .nav-list {display: block !important;}
 }
