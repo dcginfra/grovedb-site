@@ -67,7 +67,7 @@ header{width: 100%;position: relative;z-index: 100;}
 .index-block a{align-self: end;}
 .index-block a img{width: 30px;}
 .index-block a img:hover{box-shadow: 0 0 0 0 rgb(94, 115, 185);animation: pulse 2s infinite;border-radius: 100%;}
-img.index-img{width: 200px;}
+img.index-img{height: 200px;}
 .colored-text{font-weight: 800;color: #4F66B3;}
 .block-design {display: flex;align-content: space-between;align-items: center;}
 .block-design .text-p {width: 40%;}
