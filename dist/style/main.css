@@ -31,6 +31,7 @@ header{width: 100%;position: relative;z-index: 100;}
 .icon-el {display: inline-block;background-repeat: no-repeat;background-size: contain;opacity: 1;width: 25px;height: 25px;margin: 0 5px;background-position: center;}
 .icon-el.github {background-image: url(../img/github.svg);}
 .icon-el.twitter {background-image: url(../img/twitter.svg);}
+.header-social.desktop{width: 100%;min-width: 144px;}
 .header-social.mobile{display: none;}
 
 /* === Banner Section ===*/
