@@ -36,7 +36,7 @@ header{width: 100%;position: relative;z-index: 100;}
 /* === Banner Section ===*/
 .main-banner {margin-top: -95px;}
 .banner-background{background-image: url(../img/banner-1.svg);background-repeat: no-repeat;background-position: 50% -90px;display: flex;flex-direction: column;justify-content: center;text-align: center;color: #fff;}
-.text-banner h1{color: #fff;}
+.text-banner h1{font-size: 50px; color: #fff;}
 .text-banner p{font-size: 18px;}
 
 /* === Mixed ===*/
@@ -58,11 +58,11 @@ header{width: 100%;position: relative;z-index: 100;}
 
 /* === Section Two ===*/
 .title-background{width: 100%;background-image: url(../img/banner-4.svg);background-repeat: no-repeat;background-size: contain;background-size: contain;background-position: center;min-height: 450px;display: flex;flex-direction: column;justify-content: center;text-align: center;}
-.title-background h2{background-image: linear-gradient(90deg, #FFF 0%, #9AD8FE 100%);background-clip: text;text-fill-color: transparent;background-size: 100%;background-repeat: repeat;-webkit-background-clip: text;-webkit-text-fill-color: transparent;-moz-background-clip: text;-moz-text-fill-color: transparent;}
 .title-background h2, .title-background p{max-width: 600px;margin: 25px auto;}
 .title-background p a{color: #fff;}
 .info-blocks{display: flex;}
 .index-block{display: flex; flex-direction: column;padding: 0 33px 30px 33px;border-radius: 50px;width: 50%;}
+.paul {height: 180px; width: 445px;}
 .index-block h4{min-height: 50px;}
 .index-block a{align-self: end;}
 .index-block a img{width: 30px;}
@@ -76,14 +76,12 @@ header{width: 100%;position: relative;z-index: 100;}
 /* === Section Two Pop-up Windows ==*/
 .lightbox{display: none;position: fixed;z-index: 999;width: 100%;height: 100%;text-align: center;top: 0;left: 0;background: rgba(0,0,0,0.8);}
 .lightbox:target{outline: none;display: block;}
-#textModal{border-radius: 0;width: 870px;margin:auto;}
+#textModal{border-radius: 0;max-width: 870px;margin:auto;}
 #textModal .modal-header{border: 0;color: #fff;position: relative;height:35px; }
 #textModal .modal-header h3{font-size: 18px;line-height: 22px;font-family:Arial, Helvetica, sans-serif;padding:5px;}
-#textModal .modal-body{height: 489px;max-height: none;overflow: hidden;margin: 25% 0;background: #141414;border-radius: 50px;padding: 30px 50px;text-align: left; }
+#textModal .modal-body{height: 489px;max-height: none;overflow: hidden;margin: 10% 0;background: #141414;border-radius: 50px;padding: 30px 50px;text-align: left; }
 #textModal .modal-footer:empty{display: none !important; }
 #textModal .close{background: #ffffff5c;color: #141414;font-size: 18px;margin: 0;opacity: 1;position: absolute;right: 34px;text-shadow: none;top: 34px;width: 30px;border-radius: 59px;border: none;height: 30px;font-weight: 700; }
-
-
 
 /* === Section Three ==*/
 .block-hads{display: flex;justify-content: space-between;align-items: center;margin-bottom: 150px;}
@@ -102,6 +100,7 @@ header{width: 100%;position: relative;z-index: 100;}
 
 /* === Section Four ==*/
 .section-four {background-image: url(../img/banner-3.svg);background-repeat: no-repeat;background-size: cover;background-position: bottom;margin-top: 100px;}
+.section-four p.text-section{text-align: center;}
 .merk-block{display: flex;flex-direction: column;align-items: center;}
 .merk-block h2 {margin: 10px 0 0px;}
 .merk-block p{max-width: 700px;text-align: center;}
@@ -159,7 +158,7 @@ footer a {color: #fff;}
 
   .animation-svg path, .animation-svg rect {stroke-dasharray: 300;stroke-dashoffset: 300;animation: dash 5s forwards;}
   
-  .animation-svg g {animation: fill-in 1s 5s forwards;fill-opacity: 0;}
+  .animation-svg g {animation: fill-in 1s 2s forwards;fill-opacity: 0;}
   
   @keyframes dash {
     to{stroke-dashoffset: 0;}
@@ -170,7 +169,7 @@ footer a {color: #fff;}
   }
 
 /* === MOBILE VERSION === */
-.nav-mobile {display: none;position: absolute;top: 14px;right: 0;background: transparent;height: 55px;width: 70px;}
+.nav-mobile {display: none;position: absolute;top: 0;right: 0;background: transparent;height: 55px;width: 70px;}
 @media (max-width: 990px){
   footer {color: #fff; }
 }
@@ -181,7 +180,7 @@ footer a {color: #fff;}
   .nav ul li a {color: #fff;font-size: 20px;}
   .header-menu {flex-direction: column;}
   .nav ul li {padding: 5px 0;}
-  .header-menu {padding: 20px;background: #242f62;}
+  .header-menu {padding: 20px;background: #0285d7;}
   .nav ul li:hover {border-bottom: 2px solid #008de4;transition: 0.2s;}
   .section-two {flex-direction: column-reverse;}
   .block-icons {width: 100%;}
@@ -192,6 +191,7 @@ footer a {color: #fff;}
 @media screen and (min-width:800px) {
   .nav-list {display: block !important;}
 }
+}
 #navbar-toggle {position: absolute;top: 50%;cursor: pointer;padding: 10px 35px 16px 0px;}
 #navbar-toggle span, #navbar-toggle span:before, #navbar-toggle span:after {cursor: pointer;border-radius: 1px;height: 3px;width: 30px;background: #fff;position: absolute;display: block;content: '';transition: all 300ms ease-in-out;}
 #navbar-toggle span:before {top: -10px;}
@@ -200,13 +200,26 @@ footer a {color: #fff;}
 #navbar-toggle.active span:before, #navbar-toggle.active span:after {top: 0;}
 #navbar-toggle.active span:before {transform: rotate(45deg);}
 #navbar-toggle.active span:after {transform: rotate(-45deg);}
+@media (max-width:1320px){
+  .svg-animation-block{width: 100%;max-width: 600px;}
+}
 @media (max-width:800px){
   .text-banner{padding: 30px;}
-  .block-icons, .info-blocks, .block-design, .block-hads, .flex-blocks{flex-direction: column;}
-  .feature-block, .info-blocks, .block-design .title-text, .block-design .text-p, .block-text, .benefit-block, .checkmark-block{width: 100%;}
   .block-design h2{max-width: 100%;}
+  .icon-imgs,.text-list, .benefit-block, .checkmark-block{width: 100%;}
+  .block-hads{flex-direction: column;margin-bottom: 20px;}
+  .svg-animation-block {width: 100%;max-width: 600px;margin: auto;}
 }
 @media (max-width: 600px){
+  .text-banner h1{font-size: 41px;}
+  h2{font-size: 38px;}
+  .feature-block{padding: 0;}
+  .info-blocks{flex-direction: column;}
+  .index-block{width: 100%;margin: 20px 0;}
+  .block-text{margin: 0;}
+  .block-hads{width: 100%;}
+  .table-block h5{text-align: center;}
+  .table-header{text-align: center;}
   .banner-background {padding: 20px;}
   .section-links{flex-direction: column;}
   .section-links h4{max-width: 100%;}
