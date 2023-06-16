@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css"/>
+    <title>GroveDB: Tutorials</title>
+</head>
+<body class="tutorials">
+    <header>
+        <nav class="nav toggle">
+            <div class="header-menu">
+              <div class="logo-header logo-mobile">
+                <a href="/"><img src="img/grovedb-logo.svg"></a>
+              </div>
+              <div class="nav-mobile"><a id="navbar-toggle"><span></span></a></div>
+              <ul class="nav-list">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#table">Comparison Table</a></li>
+                <li><a href="/documentation">Documentation</a></li>
+                <li><a href="/tutorials">Tutorials</a></li>
+                <div class="header-social mobile">
+                  <a href="https://www.twitter.com/dashpay">
+                      <div class="icon-el twitter"></div>
+                  </a>
+                  <a href="https://www.github.com/dashpay/grovedb">
+                      <div class="icon-el github"></div>
+                  </a>
+              </div>
+              </ul>
+              <div class="header-social desktop">
+                  <a href="https://www.twitter.com/dashpay">
+                      <div class="icon-el twitter"></div>
+                  </a>
+                  <a href="https://www.github.com/dashpay/grovedb">
+                      <div class="icon-el github"></div>
+                  </a>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <div>
+        <div class="dark-mod-block">
+            <label>
+                <input type="checkbox">
+            </label>
+        </div>
+        <section id="vertical_tab_nav">
+            <ul class="tabs">
+                <li><a rel="tab1" href="index.html">Introduction</a></li>
+                <li><a rel="tab2" href="index.html">Setup</a></li>
+                <li><a rel="tab3" href="index.html">Open</a></li>
+                <li><a rel="tab4" href="index.html">Insert</a></li>
+                <li class="sub-tab"><a rel="tab5" href="index.html">Element Enum</a></li>
+                <li class="sub-tab"><a rel="tab6" href="index.html">Element Functions</a></li>
+                <li><a rel="tab7" href="index.html">Delete</a></li>
+                <li><a rel="tab8" href="index.html">Query</a></li>
+                <li class="sub-tab"><a rel="tab9" href="index.html">Explanations</a></li>
+                <li class="sub-tab"><a rel="tab10" href="index.html">Get</a></li>
+                <li class="sub-tab"><a rel="tab11" href="index.html">Simple Query</a></li>
+                <li class="sub-tab"><a rel="tab12" href="index.html">Complex Query</a></li>
+                <li><a rel="tab13" href="index.html">Proofs</a></li>
+            </ul>
+            <div class="tab_container">
+                <h3 class="tab_drawer_heading" rel="tab1">Introduction</h3>
+                <article id="tab1">
+                    <h2>Introduction</h2>
+                    <p>These tutorials aim to give developers a solid foundation on how to interact and 
+                        build with GroveDB so they may begin using it for their own applications.</p>
+                    <p>GroveDB is the first database to enable cryptographic proofs for complex queries. 
+                        It was built for Dash Platform by Dash Core Group but can be easily plugged into other 
+                        systems and applications as well. The design, a hierarchical grove of Merkle 
+                        AVL trees interconnected via root hashes and references, is largely inspired 
+                        by the paper <a href="https://eprint.iacr.org/2015/351">Database Outsourcing with Hierarchical Authenticated Data Structures</a>.</p>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab2">Setup</h3>
+                <article id="tab2">
+                    <h2>Setup</h2>
+                    <p>Clone the GroveDB repo.</p>
+                    <pre><code>git clone https://github.com/dashpay/grovedb.git</code></pre>
+                    <p>Open and build the tutorial code:</p>
+                    <pre><code>
+cd grovedb/tutorials
+cargo build
+                    </code></pre>
+                    <p>To run a tutorial, do:</p>
+                    <pre><code>cargo run --bin &lt;tutorial name&gt;</code></pre>
+                    <p>Valid tutorial names are: open, insert, delete, query-simple, query-complex, proofs.</p>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab3">Open</h3>
+                <article id="tab3">
+                    <h2>Open</h2>
+                    <p>GroveDB uses the <code>open()</code> function to <a href="https://github.com/dashpay/grovedb/blob/v0.12.0/grovedb/src/lib.rs">open</a> 
+                        an existing instance of GroveDB at 
+                        the given path in your filesystem. If there is no existing instance, a new 
+                        one will be created with an empty root tree. The only argument for <code>open()</code> is 
+                        the filesystem path.</p>
+                    <p>The following code can be run with <code>cargo run --bin open</code></p>
+                    <pre><code>
+use grovedb::GroveDB
+    fn main() {
+    // Specify the path where you want to set up the GroveDB instance
+    let path = String::from("../tutorial-storage");
+                              
+    // Open a new GroveDB at the path
+    GroveDb::open(&path).unwrap();
+                            
+    // Print to the terminal
+    println!("Opened {:?}", path);
+}                   </code></pre>
+                    <p>A folder called “storage” should have appeared in your grovedb-tutorials 
+                        directory, populated with some files. GroveDB is set up and ready for us 
+                        to insert data.</p>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab4">Insert</h3>
+                <article id="tab4">
+                    <h2>Insert</h2>
+                    <p>GroveDB uses the insert() function to insert items into storage. By default, 
+                        inserting overwrites values unless the value is a tree. The function takes 
+                        five arguments as shown below.</p>
+                    <pre><code>
+/// Insert Element into GroveDB
+pub fn insert&lt;'p, P&gt;(
+   &self,
+   // Tree path to the subtree where the key-value should be inserted
+   path: P,
+   // The key
+   key: &'p [u8],
+   // The value
+   element: Element,
+   // Insert options
+   options: Option&lt;InsertOptions&gt;,
+   // Transaction that the insert operation should be included in
+   transaction: TransactionArg,
+)
+                    </code></pre>
+                  <p>This tutorial inserts two key-values (KVs) into the root tree of the GroveDB 
+                    instance created in Open Tutorial (or a new instance if you skipped the open 
+                    tutorial). The keys and values of both KVs are strings. Then, for the purpose 
+                    of showing they are there, it uses the <code>get()</code> function to retrieve the values 
+                    and print them to the terminal.</p>
+                    <p>The following code can be run with <code>cargo run --bin insert</code>.</p>
+                    <pre><code>
+use grovedb::Element;
+use grovedb::GroveDb;
+
+fn main() {
+    // Specify a path and open GroveDB at the path as db
+    let path = String::from("../tutorial-storage");
+    let db = GroveDb::open(path).unwrap();
+
+    // Define key-values for insertion
+    let key1 = b"hello";
+    let val1 = b"world";
+    let key2 = b"grovedb";
+    let val2 = b"rocks";
+
+    // Insert key-value 1 into the root tree
+    db.insert([], key1, Element::Item(val1.to_vec(), None), None, None)
+        .unwrap()
+        .expect("successful key1 insert");
+
+    // Insert key-value 2 into the root tree
+    db.insert([], key2, Element::Item(val2.to_vec(), None), None, None)
+        .unwrap()
+        .expect("successful key2 insert");
+
+    // At this point the Items are fully inserted into the database.
+    // No other steps are required.
+
+    // To show that the Items are there, we will use the get()
+    // function to get them from the RocksDB backing store.
+
+    // Get value 1
+    let result1 = db.get([], key1, None).unwrap();
+
+    // Get value 2
+    let result2 = db.get([], key2, None).unwrap();
+
+    // Print the values to terminal
+    println!("{:?}", result1);
+    println!("{:?}", result2);
+}
+                    </code></pre>
+                    <p>The terminal should output:</p>
+                    <pre><code>
+Ok(item: [hex: 776f726c64, str: world])
+Ok(item: [hex: 726f636b73, str: rocks])
+                    </code></pre>
+                    <p>This tells us that at the given keys exist items with the shown hex and str values.</p>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab5">Element Enum</h3>
+                <article id="tab5">
+                    <h2>Element Enum</h2>
+                    <p>In the previous tutorial, we inserted strings as the values. However, 
+                        values may be any of the five variants of the Element enum:</p>
+                    <pre><code>
+pub enum Element {
+    /// An ordinary value
+    Item(Vec&lt;u8&gt;, Option&lt;ElementFlags&gt;),
+    /// A reference to an object by its path
+    Reference(ReferencePathType, MaxReferenceHop, Option&lt;ElementFlags&gt;),
+    /// A subtree, contains a prefixed key representing the root of the
+    /// subtree.
+    Tree(Option&lt;Vec&lt;u8&gt;&gt;, Option&lt;ElementFlags&gt;),
+    /// Signed integer value that can be totaled in a sum tree
+    SumItem(SumValue, Option&lt;ElementFlags&gt;),
+    /// Same as Element::Tree but underlying Merk sums values of it's summable
+    /// nodes
+    SumTree(Option&lt;Vec&lt;u8&gt;&gt;, SumValue, Option&lt;ElementFlags&gt;),
+}                            
+                    </code></pre>
+                  <p>For example, instead of using <code>let val1 = b"world"</code>, we could have 
+                    put <code>let val1 = Element::Tree(None, None)</code> and then put <code>val1</code> in the 
+                    insert function instead of <code>Element::Item(val1.to_vec(), None)</code>.</p>
+                    <p>In that case, the output would have returned:</p>
+                    <pre><code>
+Ok(tree: None)
+Ok(item: [hex: 726f636b73, str: rocks])
+                    </code></pre>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab6">Element Functions</h3>
+                <article id="tab6">
+                    <h2>Element Functions</h2>
+                    <p>Instead of passing <code>Element::Item()</code> or some other Element enum 
+                    to the <code>insert</code> function, we could also pass one of the functions implemented in 
+                    <code>Element, new_item()</code>. Given an item value, the <code>new_item</code> function returns 
+                    <code>Element::Item(item_value, None)</code>. It’s useful because it allows developers to 
+                    set a default value for the flags. It looks like this:</p>
+                    <pre><code>
+impl Element {
+    /// Set element to an item with a default flag value
+    pub fn new_item(item_value: Vec<u8>) -> Self {
+        Element::Item(item_value, None)
+        }
+    }                            
+                    </code></pre>
+                  <p>And would be used like so:</p>
+                  <pre><code>
+// Insert key-value 1 into the root tree
+db.insert([], key1, Element::new_item(val1.to_vec()), None, None)
+   .unwrap()
+   .expect("successful root tree leaf insert");
+                 </code></pre>
+                  <p>In this case the default flags are None.</p>
+                  <p>There are a few other <a href="https://github.com/dashpay/grovedb/blob/master/grovedb/src/element/constructor.rs">functions</a> implemented 
+                    in Element that can be used similarly. <code>The Element::empty_tree()</code> function is quite useful as well.</p>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab7">Delete</h3>
+                <article id="tab7">
+                    <h2>Delete</h2>
+                    <p>GroveDB uses the <code>delete()</code> function to <a href="https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/delete/mod.rs">delete</a> key-values 
+                        from storage. It takes four arguments as shown below.</p>
+                    <pre><code>
+// Delete Element from GroveDB
+pub fn delete&lt;'p, P&gt;(
+    &self,
+    // Tree path to where the key is located ([] for root)
+    path: P,
+    // Key to be deleted
+    key: &'p [u8],
+    // Delete options
+    options: Option&lt;DeleteOptions&gt;,
+    // Transaction that the delete operation should be included in
+    transaction: TransactionArg,
+) -&gt; CostResult&lt;(), Error&gt;
+                    </code></pre>
+                    <p>This tutorial inserts two key-values in the same way as the Insert Tutorial, 
+                        uses <code>get()</code> to check if the values are there, deletes them, and checks if 
+                        they’re there again.</p>
+                    <p>The following code can be run with cargo <code>run --bin delete</code>.</p>
+                    <pre><code>
+use grovedb::GroveDb;
+use grovedb::Element;
+
+fn main() {
+    // Specify a path and open GroveDB at the path as db
+    let path = String::from("../tutorial-storage");
+    let db = GroveDb::open(path).unwrap();
+
+    // Define key-values for insertion
+    let key1 = b"hello";
+    let val1 = b"world";
+    let key2 = b"grovedb";
+    let val2 = b"rocks";
+
+    // Insert key-value 1 into the root tree
+    db.insert([], key1, Element::Item(val1.to_vec(), None), None, None)
+        .unwrap()
+        .expect("successful key1 insert");
+
+    // Insert key-value 2 into the root tree
+    db.insert([], key2, Element::Item(val2.to_vec(), None), None, None)
+        .unwrap()
+        .expect("successful key2 insert");
+
+    // Check the key-values are there
+    let result1 = db.get([], key1, None).unwrap();
+    let result2 = db.get([], key2, None).unwrap();
+    println!("Before deleting, we have key1: {:?}", result1);
+    println!("Before deleting, we have key2: {:?}", result2);
+
+    // Delete the values
+    db.delete([], key1, None, None)
+        .unwrap()
+        .expect("successfully deleted key1");
+    db.delete([], key2, None, None)
+        .unwrap()
+        .expect("successfully deleted key2");
+
+    // Check the key-values again
+    let result3 = db.get([], key1, None).unwrap();
+    let result4 = db.get([], key2, None).unwrap();
+    println!("After deleting, we have key1: {:?}", result3);
+    println!("After deleting, we have key2: {:?}", result4);
+}
+                    </code></pre>
+                    <p>The terminal should output:</p>
+                    <pre><code>
+Before deleting, we have key1 Ok(item: [hex: 776f726c64, str: world])
+Before deleting, we have key2 Ok(item: [hex: 726f636b73, str: rocks])
+After deleting, we have key1 Err(PathKeyNotFound("key not found in Merk for get: 68656c6c6f"))
+After deleting, we have key2 Err(PathKeyNotFound("key not found in Merk for get: 67726f76656462"))
+                    </code></pre>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab8">Query</h3>
+                <article id="tab8">
+                    <h2>Query</h2>
+                    <p>GroveDB generally uses the <code>query()</code> function to perform 
+                        <a href="https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/get/query.rs">queries</a> on storage. 
+                        It takes four arguments as shown below</p>
+                    <pre><code>
+impl GroveDb {
+    /// Returns given path query results
+    pub fn query(
+    &self,
+    path_query: &PathQuery,
+    allow_cache: bool,
+    result_type: QueryResultType,
+    transaction: TransactionArg,
+        ) -&gt; CostResult&lt;(QueryResultElements, u16)
+            }                            
+                    </code></pre>    
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab9">Explanations</h3>
+                <article id="tab9">
+                    <h2>Explanations</h2>
+                    <p>GroveDB queries can be very complex. This section gives explanations of 
+                        each component of a path query. Deep understanding of each component isn’t 
+                        necessary to follow and learn from the tutorials, so, if you’d rather learn 
+                        by doing, feel free to skip it.</p>
+                    <p>A path query, which is the first argument of <code>query()</code>, has a path and a sized 
+                        query as parameters. The path points to the highest-level subtree you want to 
+                        query. You can traverse and recurse into lower-level subtrees within a path query 
+                        using subqueries, as will be explained later.</p>
+                    <pre><code>
+/// Path query
+pub struct PathQuery {
+    /// Path
+    pub path: Vec&lt;Vec&lt;u8&gt;&gt;,
+    /// Query
+    pub query: SizedQuery,
+}
+                    </code></pre>
+                    <p>A sized query, which is the second argument of path queries, takes a query, 
+                        limit, and offset as parameters. The limit is an integer which specifies the 
+                        maximum number of results to return in the final result set. The offset is an 
+                        integer which specifies how many items at the beginning of the raw result set 
+                        to exclude from the final result set. In other words, the limit specifies a 
+                        cut-off at the end of the raw result set, and offset specifies a cut-off at 
+                        the beginning of the raw result set which, after applied, will compose the 
+                        final result set. As implied, there is an ordering of the raw (and final) 
+                        result set, which is defined in the other, first, parameter of a sized query: query.</p>
+                    <pre><code>
+/// Sized query
+pub struct SizedQuery {
+    /// Query
+    pub query: Query,
+    /// Limit
+    pub limit: Option&lt;u16&gt;,
+    /// Offset
+    pub offset: Option&lt;u16&gt;,
+}
+                    </code></pre>
+                    <p>A query takes a vector of query items as its first argument. A query item 
+                        is either a key, set of keys, or a range of keys. Items in these keys or 
+                        ranges of keys will be added to the raw result set. Subtrees in these keys or 
+                        ranges of keys are optionally handled with the next two parameters: the 
+                        default subquery branch and the conditional subquery branch.</p>
+                    <pre><code>
+/// A `Query` represents one or more keys or ranges of keys, which can be 
+/// used to resolve a proof which will include all of the requested values.
+pub struct Query {
+    /// Items
+    pub items: Vec&lt;QueryItem>,
+    /// Default subquery branch
+    pub default_subquery_branch: SubqueryBranch,
+    /// Conditional subquery branches
+    pub conditional_subquery_branches: Option&lt;IndexMap&lt;QueryItem, SubqueryBranch&gt;&gt;,
+    /// Left to right?
+    pub left_to_right: bool,
+}
+
+/// A `QueryItem` represents a key or range of keys to be included in a proof.
+pub enum QueryItem {
+    Key(Vec&lt;u8&gt;),
+    Range(Range&lt;Vec&lt;u8&gt;&gt;),
+    RangeInclusive(RangeInclusive&lt;Vec&lt;u8&gt;&gt;),
+    RangeFull(RangeFull),
+    RangeFrom(RangeFrom&lt;Vec&lt;u8&gt;&gt;),
+    RangeTo(RangeTo&lt;Vec&lt;u8&gt;&gt;),
+    RangeToInclusive(RangeToInclusive&lt;Vec&lt;u8&gt;&gt;),
+    RangeAfter(RangeFrom&lt;Vec&lt;u8&gt;&gt;),
+    RangeAfterTo(Range&lt;Vec&lt;u8&gt;&gt;),
+    RangeAfterToInclusive(RangeInclusive&lt;Vec&lt;u8&gt;&gt;),
+}
+                    </code></pre>
+                    <p>A default subquery branch has two parameters: a subquery path and a subquery. 
+                        The subquery path is a path that is applied to all the subtrees in the result 
+                        set from the higher-level query we just mentioned. The subquery is a query of 
+                        the same type as the higher-level query which is applied to the subtrees at the 
+                        end of the subquery path. The result set of the subquery branch is added to the 
+                        overall result set. Since subqueries are the same as queries, they can recurse, 
+                        so you can have subqueries within subqueries. Both subquery path and subquery are 
+                        optional parameters of a subquery branch. If no subquery path is defined, the 
+                        subquery applies to all the subtrees in the higher-level query result set. If no 
+                        subquery is defined, all the elements from the subquery path subtrees are added to 
+                        the result set.</p>
+                    <pre><code>
+/// Subquery branch
+pub struct SubqueryBranch {
+    /// Subquery path
+    pub subquery_path: Option&lt;Path>,
+    /// Subquery
+    pub subquery: Option&lt;Box&lt;Query>>,
+}
+                    </code></pre>
+                    <p>A conditional subquery branch is the same as default subquery branches, but 
+                        takes an additional argument for query items, which again are keys or ranges 
+                        of keys. The subquery branch is only applied to the subtrees which meet the 
+                        condition of matching the query items.</p>
+                    <p>Finally, the last parameter of query is left_to_right, which is a boolean that 
+                        defines the order of the result set. Left to right means lower to higher in terms 
+                        of integers, or alphabetically in terms of strings.</p>
+                    <p>See the <a href="https://github.com/dashpay/grovedb/blob/master/README.md">documentation</a> for more details.</p>                    
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab10">Get</h3>
+                <article id="tab10">
+                    <h2>Get</h2>
+                    <p>The previous tutorials used a function <code>get()</code> to retrieve items from storage. 
+                        Getting only allows for the retrieval of one item, the key must be specified, 
+                        and cryptographic proofs of gets aren’t supported. Queries, on the other hand, 
+                        can return many values all at once, the keys don’t need to be provided, and 
+                        query results can be cryptographically proven.</p>
+                    <pre><code>
+/// Get an element from the backing store
+pub fn get&lt;'p, P>(
+    &self,
+    path: P,
+    key: &'p [u8],
+    transaction: TransactionArg,
+)
+                    </code></pre>    
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab11">Simple Query</h3>
+                <article id="tab11">
+                    <h2>Simple Query</h2>
+                    <p>This tutorial populates GroveDB with values 0-99 in a subtree within a subtree within the root tree:</p>
+                    <pre><code>
+/// Root
+///    SUBTREE1
+///       SUBTREE2
+///          Values 0-99
+                    </code></pre>
+                    <p>It then constructs and executes a query to retrieve a subset of the items and prints the query result to the terminal.</p>
+                    <p>The following code can be run with <code>cargo run --bin query-simple</code>.</p>
+                    <pre><code>
+use grovedb::operations::insert::InsertOptions;
+use grovedb::Element;
+use grovedb::GroveDb;
+use grovedb::{PathQuery, Query};
+
+const KEY1: &[u8] = b"key1";
+const KEY2: &[u8] = b"key2";
+
+// Allow insertions to overwrite trees
+// This is necessary so the tutorial can be rerun easily
+const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+    validate_insertion_does_not_override: false,
+    validate_insertion_does_not_override_tree: false,
+    base_root_storage_is_free: true,
+});
+
+fn main() {
+    // Specify the path where the GroveDB instance exists.
+    let path = String::from("../tutorial-storage");
+
+    // Open GroveDB at the path.
+    let db = GroveDb::open(path).unwrap();
+
+    // Populate GroveDB with values. This function is defined below.
+    populate(&db);
+
+    // Define the path to the subtree we want to query.
+    let path = vec![KEY1.to_vec(), KEY2.to_vec()];
+
+    // Instantiate a new query.
+    let mut query = Query::new();
+
+    // Insert a range of keys to the query that we would like returned.
+    // In this case, we are asking for keys 30 through 34.
+    query.insert_range(30_u8.to_be_bytes().to_vec()..35_u8.to_be_bytes().to_vec());
+
+    // Put the query into a new unsized path query.
+    let path_query = PathQuery::new_unsized(path, query.clone());
+
+    // Execute the query and collect the result items in "elements".
+    let (elements, _) = db
+        .query_item_value(&path_query, true, None)
+        .unwrap()
+        .expect("expected successful get_path_query");
+
+    // Print result items to terminal.
+    println!("{:?}", elements);
+}
+
+fn populate(db: &GroveDb) {
+    // Put an empty subtree into the root tree nodes at KEY1.
+    // Call this SUBTREE1.
+    db.insert([], KEY1, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE1 insert");
+
+    // Put an empty subtree into subtree1 at KEY2.
+    // Call this SUBTREE2.
+    db.insert([KEY1], KEY2, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE2 insert");
+
+    // Populate SUBTREE2 with values 0 through 99 under keys 0 through 99.
+    for i in 0u8..100 {
+        let i_vec = (i as u8).to_be_bytes().to_vec();
+        db.insert(
+            [KEY1, KEY2],
+            &i_vec,
+            Element::new_item(i_vec.clone()),
+            INSERT_OPTIONS,
+            None,
+        )
+        .unwrap()
+        .expect("successfully inserted values");
+    }
+}
+                    </code></pre>
+                    <p>The terminal should output:</p>
+                    <pre><code>
+[[30], [31], [32], [33], [34]]
+                    </code></pre>
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab12">Complex Query</h3>
+                <article id="tab12">
+                    <h2>Complex Query</h2>
+                    <p>This tutorial populates GroveDB with the following tree structure:</p>
+                    <pre><code>
+/// Root
+///   SUBTREE1
+///      SUBTREE2
+///         Values 0-49 except random number 1
+///         SUBTREE3 at random number 1
+///            Values 50-74 except random number 2
+///            SUBTREE4 at random number 2
+///               SUBTREE5
+///                  Values 75-99
+                    </code></pre>
+                  <p>It then queries SUBTREE2 for keys 20-30. Call this QUERY1.</p>
+                  <p>It applies a conditional subquery to QUERY1, which says if any keys 20-25 are 
+                    subtrees, navigate the subquery path and execute the subquery. Call this SUBQUERY1. 
+                    No path is specified for SUBQUERY1, so the subquery is applied directly to the subtrees. 
+                    In this case, that is just SUBTREE3. The subquery asks for keys 60 and 70 from SUBTREE3.</p>
+                  <p>Say SUBTREE3 is located at key 22. The result set now looks like this:</p>
+                  <pre><code>
+[20,21,60,70,23,24,25,26,27,28,29,30]
+                  </code></pre>
+                  <p>It then applies a conditional subquery to SUBQUERY1, which says if key 60 is a 
+                    subtree, navigate the subquery path and execute the subquery. Call this SUBQUERY2. 
+                    SUBQUERY2 specifies to navigate through SUBTREE4 and execute the subquery on SUBTREE5. 
+                    The subquery asks for keys 90 through 94 from SUBTREE5.</p>
+                  <p>Say SUBTREE4 is located at key 60. The result set now looks like this:</p>
+                  <pre><code>
+[20,21,90,91,92,93,94,70,23,24,25,26,27,28,29,30]
+                  </code></pre>
+                  <p>QUERY1, SUBQUERY1, and SUBQUERY2 are then all put into a sized query, which sets 
+                    a limit of 10 and an offset of 3. Limit of 10 means no more than 10 items can be 
+                    included in the results. Offset of 3 means the first 3 pre-sized query results are 
+                    omitted from the post-sized query results.</p>
+                  <p>The final result set is:</p>
+                  <pre><code>
+[91,92,93,94,70,23,24,25,26,27]
+                  </code></pre>
+                  <p>The sized query is then passed to the path query and the path query is executed.</p>
+                  <p>The following code can be run with cargo <code>run --bin query-complex</code>.</p>
+                  <pre><code>
+use grovedb::operations::insert::InsertOptions;
+use grovedb::Element;
+use grovedb::GroveDb;
+use grovedb::{PathQuery, Query, QueryItem, SizedQuery};
+use rand::Rng;
+
+const KEY1: &[u8] = b"key1";
+const KEY2: &[u8] = b"key2";
+const KEY3: &[u8] = b"key3";
+
+// Allow insertions to overwrite trees
+// This is necessary so the tutorial can be rerun easily
+const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+    validate_insertion_does_not_override: false,
+    validate_insertion_does_not_override_tree: false,
+    base_root_storage_is_free: true,
+});
+
+fn main() {
+    // Specify the path where the GroveDB instance exists.
+    let path = String::from("../tutorial-storage");
+
+    // Open GroveDB at the path.
+    let db = GroveDb::open(path).unwrap();
+
+    // Populate GroveDB with values. This function is defined below.
+    populate(&db);
+
+    // Define the path to the highest-level subtree we want to query.
+    let path = vec![KEY1.to_vec(), KEY2.to_vec()];
+
+    // Instantiate new queries.
+    let mut query = Query::new();
+    let mut subquery = Query::new();
+    let mut subquery2 = Query::new();
+
+    // Insert query items into the queries.
+    // Query 20-30 at path.
+    query.insert_range(20_u8.to_be_bytes().to_vec()..31_u8.to_be_bytes().to_vec());
+    // If any 20-30 are subtrees and meet the subquery condition,
+    // follow the path and query 60, 70 from there.
+    subquery.insert_keys(vec![vec![60], vec![70]]);
+    // If either 60, 70 are subtrees and meet the subquery condition,
+    // follow the path and query 90-94 from there.
+    subquery2.insert_range(90_u8.to_be_bytes().to_vec()..95_u8.to_be_bytes().to_vec());
+
+    // Add subquery branches.
+    // If 60 is a subtree, navigate through SUBTREE4 and run subquery2 on SUBTREE5.
+    subquery.add_conditional_subquery(QueryItem::Key(vec![60]), Some(vec!(KEY3.to_vec())), Some(subquery2));
+    // If anything up to and including 25 is a subtree, run subquery on it. No path.
+    query.add_conditional_subquery(
+        QueryItem::RangeToInclusive(std::ops::RangeToInclusive { end: vec![25] }),
+        None,
+        Some(subquery),
+    );
+
+    // Put the query into a sized query. Limit the result set to 10,
+    // and impose an offset of 3.
+    let sized_query = SizedQuery::new(query, Some(10), Some(3));
+
+    // Put the sized query into a new path query.
+    let path_query = PathQuery::new(path, sized_query.clone());
+
+    // Execute the path query and collect the result items in "elements".
+    let (elements, _) = db
+        .query_item_value(&path_query, true, None)
+        .unwrap()
+        .expect("expected successful get_path_query");
+
+    // Print result items to terminal.
+    println!("{:?}", elements);
+}
+
+fn populate(db: &GroveDb) {
+    // Put an empty subtree into the root tree nodes at KEY1.
+    // Call this SUBTREE1.
+    db.insert([], KEY1, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE1 insert");
+
+    // Put an empty subtree into subtree1 at KEY2.
+    // Call this SUBTREE2.
+    db.insert([KEY1], KEY2, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE2 insert");
+
+    // Populate SUBTREE2 with values 0 through 49 under keys 0 through 49.
+    for i in 0u8..50 {
+        let i_vec = (i as u8).to_be_bytes().to_vec();
+        db.insert(
+            [KEY1, KEY2],
+            &i_vec,
+            Element::new_item(i_vec.clone()),
+            INSERT_OPTIONS,
+            None,
+        )
+        .unwrap()
+        .expect("successfully inserted values in SUBTREE2");
+    }
+
+    // Set random_numbers
+    let mut rng = rand::thread_rng();
+    let rn1: &[u8] = &(rng.gen_range(15..26) as u8).to_be_bytes();
+    let rn2: &[u8] = &(rng.gen_range(60..62) as u8).to_be_bytes();
+
+    // Overwrite key rn1 with a subtree
+    // Call this SUBTREE3
+    db.insert(
+        [KEY1, KEY2],
+        &rn1,
+        Element::empty_tree(),
+        INSERT_OPTIONS,
+        None,
+    )
+    .unwrap()
+    .expect("successful SUBTREE3 insert");
+
+    // Populate SUBTREE3 with values 50 through 74 under keys 50 through 74
+    for i in 50u8..75 {
+        let i_vec = (i as u8).to_be_bytes().to_vec();
+        db.insert(
+            [KEY1, KEY2, rn1],
+            &i_vec,
+            Element::new_item(i_vec.clone()),
+            INSERT_OPTIONS,
+            None,
+        )
+        .unwrap()
+        .expect("successfully inserted values in SUBTREE3");
+    }
+
+    // Overwrite key rn2 with a subtree
+    // Call this SUBTREE4
+    db.insert(
+        [KEY1, KEY2, rn1],
+        &rn2,
+        Element::empty_tree(),
+        INSERT_OPTIONS,
+        None,
+    )
+    .unwrap()
+    .expect("successful SUBTREE4 insert");
+
+    // Put an empty subtree into SUBTREE4 at KEY3.
+    // Call this SUBTREE5.
+    db.insert([KEY1, KEY2, rn1, rn2], KEY3, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE5 insert");
+
+    // Populate SUBTREE5 with values 75 through 99 under keys 75 through 99
+    for i in 75u8..99 {
+        let i_vec = (i as u8).to_be_bytes().to_vec();
+        db.insert(
+            [KEY1, KEY2, rn1, rn2, KEY3],
+            &i_vec,
+            Element::new_item(i_vec.clone()),
+            INSERT_OPTIONS,
+            None,
+        )
+        .unwrap()
+        .expect("successfully inserted values in SUBTREE5");
+    }
+}
+                  </code></pre> 
+                  <p>The terminal output depends on which random numbers were generated. A few of the possibilities are shown below.</p>
+                  <p>Random number 1 does not fall between 20-25:</p>
+                  <pre><code>
+[[22], [23], [24], [25], [26], [27], [28], [29]]
+                  </code></pre>
+                  <p>Random number 1 is 23, random number 2 is not 60:</p>
+                  <pre><code>
+[[60], [70], [24], [25], [26], [27], [28], [29]]
+                  </code></pre>
+                  <p>Random number 1 is 21, random number 2 is 60:</p>
+                  <pre><code>
+[[92], [93], [94], [70], [22], [23], [24], [25], [26], [27]]
+                  </code></pre>      
+                </article>
+                <h3 class="tab_drawer_heading" rel="tab13">Proofs</h3>
+                <article id="tab13">
+                    <h2>Proofs</h2>
+                    <p>GroveDB generally uses the <code>prove_query()</code> function to <a href="https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/generate.rs">generate</a> query proofs, 
+                        and the <code>verify_query()</code> function to <a href="https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/verify.rs">verify</a> query proofs. <code>prove_query()</code> just 
+                        takes a path query as an argument and <code>verify_query()</code> takes a proof as well 
+                        as a path query.</p>
+                    <p>This tutorial populates and queries GroveDB the same as Simple Query Tutorial, then generates a 
+                        proof for the query, uses it to calculate the root hash, and then compares that root hash to the 
+                        GroveDB root hash.</p>
+                    <p>The following code can be run with cargo <code>run --bin proofs</code>.</p>
+                    <pre><code>
+use grovedb::GroveDb;
+use grovedb::{ Query, PathQuery };
+use grovedb::operations::insert::InsertOptions;
+use grovedb::Element;
+
+const KEY1: &[u8] = b"key1";
+const KEY2: &[u8] = b"key2";
+
+// Allow insertions to overwrite trees
+// This is necessary so the tutorial can be rerun easily
+const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+    validate_insertion_does_not_override: false,
+    validate_insertion_does_not_override_tree: false,
+    base_root_storage_is_free: true,
+});
+
+fn main() {
+    // Specify the path to the previously created GroveDB instance
+    let path = String::from("../tutorial-storage");
+
+    // Open GroveDB as db
+    let db = GroveDb::open(path).unwrap();
+
+    // Populate GroveDB with values. This function is defined below.
+    populate(&db);
+
+    // Define the path to the subtree we want to query.
+    let path = vec![KEY1.to_vec(), KEY2.to_vec()];
+
+    // Instantiate a new query.
+    let mut query = Query::new();
+
+    // Insert a range of keys to the query that we would like returned.
+    query.insert_range(30_u8.to_be_bytes().to_vec()..35_u8.to_be_bytes().to_vec());
+
+    // Put the query into a new unsized path query.
+    let path_query = PathQuery::new_unsized(path, query.clone());
+
+    // Execute the query and collect the result items in "elements".
+    let (_elements, _) = db
+        .query_item_value(&path_query, true, None)
+        .unwrap()
+        .expect("expected successful get_path_query");
+
+    // Generate proof.
+    let proof = db.prove_query(&path_query).unwrap().unwrap();
+
+    // Get hash from query proof and print to terminal along with GroveDB root hash.
+    let (hash, _result_set) = GroveDb::verify_query(&proof, &path_query).unwrap();
+
+    // See if the query proof hash matches the GroveDB root hash
+    println!("Does the hash generated from the query proof match the GroveDB root hash?");
+    if hash == db.root_hash(None).unwrap().unwrap() {
+        println!("Yes");
+    } else { println!("No"); };
+}
+
+fn populate(db: &GroveDb) {
+    // Put an empty subtree into the root tree nodes at KEY1.
+    // Call this SUBTREE1.
+    db.insert([], KEY1, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE1 insert");
+
+    // Put an empty subtree into subtree1 at KEY2.
+    // Call this SUBTREE2.
+    db.insert([KEY1], KEY2, Element::empty_tree(), INSERT_OPTIONS, None)
+        .unwrap()
+        .expect("successful SUBTREE2 insert");
+
+    // Populate SUBTREE2 with values 0 through 99 under keys 0 through 99.
+    for i in 0u8..100 {
+        let i_vec = (i as u8).to_be_bytes().to_vec();
+        db.insert(
+            [KEY1, KEY2],
+            &i_vec,
+            Element::new_item(i_vec.clone()),
+            INSERT_OPTIONS,
+            None,
+        )
+        .unwrap()
+        .expect("successfully inserted values");
+    }
+}
+                    </code></pre>
+                    <p>The terminal should output:</p>
+                    <pre><code>
+Does the hash generated from the query proof match the GroveDB root hash?
+Yes
+                    </code></pre>
+                    <p>Now you know that your query results are complete, correct, and fresh.</p>    
+                </article>
+            </div>
+        </section>
+    </div>
+    <footer class="footer tag" role="contentinfo">
+        <div class="block-footer">
+            <p class="copy">© 2023 GroveDB</p>
+            <p>Designed and constructed by the engineers at <a href="https://www.dash.org/dcg">Dash Core Group</a></p>
+            <p>GroveDB is the first database to support cryptographic proofs for complex queries</p>
+        </div>
+      </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='js/main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

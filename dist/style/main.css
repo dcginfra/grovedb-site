@@ -14,7 +14,7 @@ strong {font-size: 700; }
 p, ul, table {font-family: 'Inter', sans-serif;line-height: 1.6em; }
 p{font-size: 15px;font-weight: 600;}
 a{color: #000;}
-a:hover {text-decoration: none;color: #562993;}
+a:hover {text-decoration: none;color: #0289dd;}
 hr {margin-top: 1rem;margin-bottom: 1rem;border: 0;border-top: 1px solid rgba(0, 0, 0, 0.1);box-sizing: content-box;height: 0;overflow: visible;}
 img {vertical-align: middle;border-style: none;width: 100%;}
 *, *::before, *::after {box-sizing: border-box;}
@@ -145,6 +145,35 @@ tr:first-child td:first-child { border-top-left-radius: 10px; }
 .section-six a{font-size: 18px;}
 .section-six .icon-el{width: 20px;height: 20px;margin: 0 10px;}
 
+/*== Tutorial Page and Document Page ==*/
+.tutorials header, .documentation header{background: #0289DD;}
+body.tutorials, body.documentation{background: #fff;color:#000}
+.tutorials p, .documentation p{font-size: 18px;font-weight: 500;}
+p code{background: #0d1117;padding: 0 3px;color: #1491df;}
+#vertical_tab_nav {display: block;width: 100%;}
+.tabs{float: left;margin: 50px 0px;padding: 0px;list-style: none;overflow: hidden;width: 30%;}
+.tabs li{margin-bottom: 1px;text-align: left;padding: 0px;}
+#vertical_tab_nav li:last-child{margin-bottom: 0px;border-bottom: 0px;}
+#vertical_tab_nav li a{display: block;font-size: 14pt;text-decoration: none;padding: 3% 7%;border-right: 2px solid #0289dd2b;}
+#vertical_tab_nav li a.selected{border-right: 2px solid #0289dded;}
+.tab_container{display: block;width: 80%;min-height: 500px;}
+#vertical_tab_nav div article{display: none;margin: 0px;color: #555;padding: 10px 3% 3% 3%;}
+#vertical_tab_nav div article p{margin: 0px 0px 20px 0px;}
+
+@media screen and (max-width: 781px) {
+  .tab_container{display: block;margin: 0 auto;width: 95%;border-top: none;border-radius: 0;box-shadow: 0px 0px 10px black;}
+  .d_active{background: #fff;}
+}
+.tabs {display: none;}
+.tab_drawer_heading{margin: 0;font-size: 14pt;color: #fff;text-decoration: none;padding: 3%;background: #57cac9;background: -webkit-linear-gradient(top, #444, #333);background: -moz-linear-gradient(top, #444, #333);}
+
+@media screen and (min-width: 480px) {
+  .tab_container{float: left;padding: 10px 3% 3% 3%;border-radius: 0 10px 10px 0;width: 64%;}
+  .tabs{display: block;}
+  .tab_drawer_heading{display: none;}
+  article{padding: 0;}
+}
+
 /*=== Footer Section ==*/
 footer {text-align: center; font-size: 14px;margin: 50px 0;}
 footer .copy{color:#70bdec;}
@@ -165,7 +194,7 @@ footer a {color: #fff;}
 
   .animation-svg path, .animation-svg rect {stroke-dasharray: 300;stroke-dashoffset: 300;animation: dash 5s forwards;}
   
-  .animation-svg g {animation: fill-in 1s 2s forwards;fill-opacity: 0;}
+  .animation-svg g {animation: fill-in 1s 3s forwards;fill-opacity: 0;}
   
   @keyframes dash {
     to{stroke-dashoffset: 0;}
