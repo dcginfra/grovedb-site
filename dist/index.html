@@ -44,10 +44,10 @@
     <div class="banner-background">
       <div class="text-banner">
         <h1>The first database to support cryptographic proofs for complex queries</h1>
-        <p>Store and retrieve data with absolute confidence.</p>
+        <p>Designed and build by <a href="https://www.dash.org/dcg/">Dash developers</a></p>
       </div>
       <div id="features" class="section section-one">
-        <h2>Get a head start with GroveDB</h2>
+        <h4>Explore the advantages of using GroveDB in your project</h4>
         <div class="block-icons">
             <h5>Broad features</h5>
             <div class="feature-block">
@@ -59,34 +59,34 @@
                     </div>
                 </div>
                 <div class="icon-imgs">
-                    <img src="img/icon-2.svg">
-                    <div class="icon-text">
-                        <h6>Efficient</h6>
-                        <p>Benefit from quick and lightweight proofs</p>
-                    </div>
-                </div>
-                <div class="icon-imgs">
                     <img src="img/icon-3.svg">
                     <div class="icon-text">
                         <h6>Comprehensive</h6>
                         <p>Get support for secondary indexes and complex queries</p>
                     </div>
                 </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-2.svg">
+                    <div class="icon-text">
+                        <h6>Efficient</h6>
+                        <p>Benefit from quick and lightweight proofs</p>
+                    </div>
+                </div>
             </div>
-            <h5>Technical features</h5>
+            <h5>Technical Features</h5>
             <div class="feature-block tag">
                 <div class="icon-imgs">
                     <img src="img/icon-4.svg">
                     <div class="icon-text">
                         <h6>Complex query proofs</h6>
-                        <p>Prove much more than just simple gets</p>
+                        <p>Prove much more than just single-key retrievals</p>
                     </div>
                 </div>
                 <div class="icon-imgs">
                     <img src="img/icon-5.svg">
                     <div class="icon-text">
                         <h6>Inclusion and non-inclusion proofs</h6>
-                        <p>Verify the presence or absence of items</p>
+                        <p>Verify the presence OR absence of items</p>
                     </div>
                 </div>             
                 <div class="icon-imgs">
@@ -208,8 +208,8 @@
   </div>
   <div class="section section-two">
     <div class="title-background tag">
-        <h2>How is GroveDB’s design unique?</h2>
-        <p>GroveDB is the first production-level implementation of a hierarchical authenticated data structure (HADS), largely inspired <a href="/" target="_blank">by Database Outsourcing with Hierarchical Authenticated Data Structures.</a></p>
+        <h2>Design</h2>
+        <p>GroveDB is the first production-level implementation of a hierarchical authenticated data structure (HADS), largely inspired by<a href="/" target="_blank"> Database Outsourcing with Hierarchical Authenticated Data Structures.</a></p>
     </div>
     <div class="info-blocks tag">
         <div class="index-block">
@@ -229,10 +229,8 @@
         <div class="text-list">
             <div class="block-text">
                 <h2>What is a HADS?</h2>
-                <p>A HADS is, simply speaking, an ADS (authenticated data structure) containing additional ADSs. This architecture allows GroveDB to efficiently provide cryptographic proofs alongside secondary index query results.</p>
+                <p>A HADS is, simply speaking, an ADS (authenticated data structure) containing additional ADSs. This architecture allows GroveDB to efficiently provide cryptographic proofs for secondary index query results.</p>
                 <p>In our case, the HADS is a Merkle tree whose nodes may contain the root hashes of additional Merkle trees which themselves may contain the root hashes of additional Merkle trees and so on. Subtrees can be created for secondary indexes, where each secondary index subtree has additional subtrees for each unique value.</p>          
-                <p>For example, say there is a “Restaurants Who Accept Dash” data contract with a “Restaurants” document type in Dash Platform. One of the secondary indexes for this document type might be “City”, which indicates which city the restaurant is located in.</p>
-                <p>This “City” secondary index would have its own subtree which stores all of the city names for which there are restaurants in the contract. Each city would then have its own subtree, containing the restaurants in that city.</p>
             </div> 
             <div class="list-block">   
                 <h5>Benefits of a HADS:</h5>
@@ -537,10 +535,9 @@
 </div>  
   <div class="section section-four tag">
     <h2>What is Merk?</h2>
-    <p>By default, all trees in GroveDB are Merk trees.</p>
     <p class="text-section">Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
     <a class="button" href="">Read Documentation<img src="img/button-icons.svg"></a>
-    <h5>Features of the Merk trees</h5>
+    <h5>Features of a Merk tree</h5>
     <div class="flex-blocks tag">
         <div class="checkmark-block">
             <img src="img/icon-10.svg">
@@ -612,8 +609,8 @@
                 <button type="button" class="close full-height" data-dismiss="modal" aria-hidden="true">X</button>
                 <div class="modal-body">
                     <h2>What are secondary indexes?</h2>
-                    <p>Say there is a “Restaurants Who Accept Dash” data contract with a “Restaurants” document type in Dash Platform, where restaurants who accept Dash are registered.</p>
-                    <p>While the primary index for this document type would be the document’s ID, a unique series of random numbers and letters for each restaurant, one of the secondary indexes might be “City”, which indicates which city the restaurant is located in. Clearly, querying documents by secondary index is an essential function of a useful database.</p>
+                    <p>Secondary indexes enable clients to execute queries that do things like, for example, retrieve the names of all the restaurants within a given city. The database simply has to navigate to the city index and iterate over the documents/records for the given city.</p>
+                    <p>If a client wanted to perform the same query without secondary indexes, they would need to iterate through every single document/record in the database to check if that restaurant is in that city, and then return the name.</p>
                     <p>Until now, getting a cryptographic proof with a query on a secondary index wasn’t possible with any existing solution.</p>
                 </div>
             </div>

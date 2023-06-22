@@ -41,12 +41,13 @@
             </div>
           </nav>
     </header>
-    <div>
-        <div class="dark-mod-block">
-            <label>
-                <input type="checkbox">
-            </label>
-        </div>
+    <div class="toggle-dn">
+        <img class="sun" src="img/sun.png">
+        <img class="moon" src="img/moon.png">
+        <span class="toggle-mod"></span>
+        <span class="animate-background"></span>
+    </div>
+    <div class="tabs-block">
         <section id="vertical_tab_nav">
             <ul class="tabs">
                 <li><a rel="tab1" href="index.html">Introduction</a></li>
@@ -887,18 +888,25 @@ Yes
             </div>
         </section>
     </div>
-    <footer class="footer tag" role="contentinfo">
+    <footer class="footer" role="contentinfo">
         <div class="block-footer">
             <p class="copy">© 2023 GroveDB</p>
             <p>Designed and constructed by the engineers at <a href="https://www.dash.org/dcg">Dash Core Group</a></p>
             <p>GroveDB is the first database to support cryptographic proofs for complex queries</p>
         </div>
-      </footer>
+    </footer>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type='text/javascript' src='js/main.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>
         hljs.highlightAll();
+
+        $(document).ready(function(){
+            $('.toggle-dn').click(function(){
+                $('.toggle-dn').toggleClass('active')
+                $('body').toggleClass('night')
+            })
+        })
     </script>
 </body>
 </html>

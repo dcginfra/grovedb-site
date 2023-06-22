@@ -1,4 +1,5 @@
 /* === Main Body ==*/
+html, body{width: 100%;height: 100%;}
 html{font-family: sans-serif;line-height: 1.15;-webkit-text-size-adjust: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);scroll-behavior: smooth;}
 body{font-family: 'Inter', sans-serif;background: #0289DD; color: #fff;font-size: 18px;margin: auto;max-width: 100%;overflow-x: hidden;}
 body.noscroll {width: 100%;height: 100%;overflow: hidden; }
@@ -22,6 +23,7 @@ img {vertical-align: middle;border-style: none;width: 100%;}
 
 /* === Header Section ===*/
 header{width: 100%;position: relative;z-index: 100;}
+header a{text-decoration: none;}
 .header-menu {display: flex;justify-content: space-between;padding: 30px;}
 .logo-header {}
 .logo-header img {width: 100%;max-width: 150px;}
@@ -39,6 +41,8 @@ header{width: 100%;position: relative;z-index: 100;}
 .banner-background{background-image: url(../img/banner-1.svg);background-repeat: no-repeat;background-position: 50% -90px;display: flex;flex-direction: column;justify-content: center;text-align: center;color: #fff;}
 .text-banner h1{font-size: 50px; color: #fff;}
 .text-banner p{font-size: 18px;}
+.text-banner a{color: #fff;}
+.text-banner a:hover{color: #70bdec;}
 
 /* === Mixed ===*/
 .black-section{background: #141414;}
@@ -118,6 +122,7 @@ img.index-img{height: 200px;}
 .section-four h5{margin: 37px 0;}
 
 /* === Section Five ==*/
+#table h5{text-align: center;}
 .table-block {margin: 30px 0;}
 .table-block h2{text-align: center;}
 table{margin: 7px 0;}
@@ -146,9 +151,13 @@ tr:first-child td:first-child { border-top-left-radius: 10px; }
 .section-six .icon-el{width: 20px;height: 20px;margin: 0 10px;}
 
 /*== Tutorial Page and Document Page ==*/
+.tabs-block{min-height: 100%;}
 .tutorials header, .documentation header{background: #0289DD;}
-body.tutorials, body.documentation{background: #fff;color:#000}
+body.tutorials, body.documentation{background: #fff;color:#000;transition: 1s;}
 .tutorials p, .documentation p{font-size: 18px;font-weight: 500;}
+.tutorials footer, .documentation footer{color: #fff;}
+.tutorials footer, .documentation footer{background: #0289DD; padding: 50px 10px; margin: 30px 0 0 0;}
+.tabs-block {display: flex;flex-direction: column;}
 p code{background: #0d1117;padding: 0 3px;color: #1491df;}
 #vertical_tab_nav {display: block;width: 100%;}
 .tabs{float: left;margin: 50px 0px;padding: 0px;list-style: none;overflow: hidden;width: 30%;}
@@ -161,11 +170,12 @@ p code{background: #0d1117;padding: 0 3px;color: #1491df;}
 #vertical_tab_nav div article p{margin: 0px 0px 20px 0px;}
 
 @media screen and (max-width: 781px) {
-  .tab_container{display: block;margin: 0 auto;width: 95%;border-top: none;border-radius: 0;box-shadow: 0px 0px 10px black;}
   .d_active{background: #fff;}
+  .tab_drawer_heading{margin: 0;font-size: 25px;font-weight: 500;color: #555;text-decoration: none;padding: 6% 3%;border-bottom: 1px solid #0289dd5e;}
 }
 .tabs {display: none;}
-.tab_drawer_heading{margin: 0;font-size: 14pt;color: #fff;text-decoration: none;padding: 3%;background: #57cac9;background: -webkit-linear-gradient(top, #444, #333);background: -moz-linear-gradient(top, #444, #333);}
+.tab_container{width: 100%;}
+.tab_drawer_heading{margin: 0;font-size: 25px;font-weight: 500;color: #555;text-decoration: none;padding: 6% 3%;border-bottom: 1px solid #0289dd5e;}
 
 @media screen and (min-width: 480px) {
   .tab_container{float: left;padding: 10px 3% 3% 3%;border-radius: 0 10px 10px 0;width: 64%;}
@@ -174,11 +184,22 @@ p code{background: #0d1117;padding: 0 3px;color: #1491df;}
   article{padding: 0;}
 }
 
+/*=== Dark/Light Mod ===*/
+.toggle-dn{position: absolute;right: 10px;margin: 10px;cursor: pointer;display: flex;justify-content: center;align-items: center;width: 50px;height: 50px;background: #000;border-radius: 50%;box-shadow: inset 0 8px 60px rgba(0, 0, 0, .1),inset 0 8px 8px rgba(0, 0, 0, .1),inset 0 -4px 4px rgba(0, 0, 0, .1);transition: 1s;}
+.toggle-dn.active{background: #fff;}
+.sun{width: 30px;height: 30px;filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));transition: 1s ease;}
+.moon{position: absolute;width: 30px;height: 30px;filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));transition: 1s ease;transform: scale(0);}
+.toggle-dn.active .sun{transform: rotate(360deg) scale(0);transition-delay: 0s;}
+.toggle-dn.active .moon{transform: scale(1) rotate(360deg);transition-delay: .8s;}
+body.night{background: #141414;color: #fff;transition: 1s ease-out;}
+body.night a, body.night #vertical_tab_nav div article, body.night .tab_drawer_heading{color: #fff;transition: 1s ease-out;}
+
 /*=== Footer Section ==*/
 footer {text-align: center; font-size: 14px;margin: 50px 0;}
 footer .copy{color:#70bdec;}
 footer p{font-weight: 500;margin: 2px 0;}
 footer a {color: #fff;}
+footer a:hover{color:#70bdec;}
 
 /* === ANIMATION === */
 @-webkit-keyframes pulse {
