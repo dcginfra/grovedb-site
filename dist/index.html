@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" type="text/css" href="style/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <title>GroveDB</title>
 </head>
 <body>
@@ -45,88 +45,63 @@
     <div class="banner-background">
       <div class="text-banner">
         <h1>The first database to support cryptographic proofs for complex queries</h1>
-        <p>Designed and built by the developers of <a href="https://www.dash.org/platform/" target="_blank">Dash</a></p>
+        <p class="inline-text">Built by the developers of<a href="https://www.dash.org/platform/"><img style="vertical-align: -1px;" src="https://media.dash.org/wp-content/uploads/dash_logo_2018_rgb_for_screens.svg" class="filter-white" width="50" height="16" /></a></p>
       </div>
       <div id="features" class="section section-one">
-        <h4>Explore the advantages of using GroveDB in your project</h4>
+        <h4>Features</h4>
         <div class="block-icons">
-            <h5>Broad features</h5>
             <div class="feature-block">
-                <div class="icon-imgs">
-                    <img src="img/icon-1.svg">
-                    <div class="icon-text">
-                        <h6>Trustless</h6>
-                        <p>Prove all your query results cryptographically</p>
-                    </div>
-                </div>
-                <div class="icon-imgs">
-                    <img src="img/icon-3.svg">
-                    <div class="icon-text">
-                        <h6>Comprehensive</h6>
-                        <p>Get support for secondary indexes and complex queries</p>
-                    </div>
-                </div>
-                <div class="icon-imgs">
-                    <img src="img/icon-2.svg">
-                    <div class="icon-text">
-                        <h6>Efficient</h6>
-                        <p>Benefit from quick and lightweight proofs</p>
-                    </div>
-                </div>
-            </div>
-            <h5>Technical Features</h5>
-            <div class="feature-block tag">
                 <div class="icon-imgs">
                     <img src="img/icon-4.svg">
                     <div class="icon-text">
-                        <h6>Complex query proofs</h6>
-                        <p>Prove much more than just single-key retrievals</p>
-                    </div>
-                </div>
-                <div class="icon-imgs">
-                    <img src="img/icon-5.svg">
-                    <div class="icon-text">
-                        <h6>Inclusion and non-inclusion proofs</h6>
-                        <p>Verify the presence OR absence of items</p>
-                    </div>
-                </div>             
-                <div class="icon-imgs">
-                    <img src="img/icon-5.svg">
-                    <div class="icon-text">
-                        <h6>ACID compliancy</h6>
-                        <p>Benefit from ACID properties</p>
-                    </div>
-                </div>   
-                <div class="icon-imgs">
-                    <img src="img/icon-6.svg">
-                    <div class="icon-text">
-                        <h6>Flexible tree types</h6>
-                        <p>Use different tree types within the same graph</p>
+                        <h6>Query proofs</h6>
+                        <p>The first database to support proofs for queries more complex than single-key retrievals</p>
                     </div>
                 </div>
                 <div class="icon-imgs">
                     <img src="img/icon-7.svg">
                     <div class="icon-text">
-                        <h6>Chunking</h6>
-                        <p>Quickly and trustlessly replicate state from one node to another</p>
+                        <h6>Secondary indexes</h6>
+                        <p>Create indexes, including unique and compound indexes, on any field</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-6.svg">
+                    <div class="icon-text">
+                        <h6>Mutable and immutable data storage</h6>
+                        <p>Built-in functionality to support both within the same database</p>
+                    </div>
+                </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-5.svg">
+                    <div class="icon-text">
+                        <h6>Inclusion and absence proofs</h6>
+                        <p>Verify the presence or absence of items using Merkle proofs</p>
                     </div>
                 </div>
                 <div class="icon-imgs">
                     <img src="img/icon-8.svg">
                     <div class="icon-text">
                         <h6>Operation costs</h6>
-                        <p>Easily estimate and get the storage and computational cost of operations </p>
+                        <p>Get the costs of operations and estimate them beforehand</p>
                     </div>
                 </div>
+                <div class="icon-imgs">
+                    <img src="img/icon-17.svg">
+                    <div class="icon-text">
+                        <h6>ACID compliancy</h6>
+                        <p>Benefit from ACID properties</p>
+                    </div>
+                </div>   
             </div>
         </div>
       </div>
     </div>
   </div>
 <div class="black-section">
-  <div class="section section-five">
-    <div id="table" class="table-block tag">
-        <h5>Comparison Table</h5>
+  <div id="table" class="section section-five">
+    <div class="table-block tag">
+        <h4>Comparison</h4>
         <table>
             <thead>
                 <tr>
@@ -140,22 +115,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="table-header">Inclusion Proofs</td>
-                    <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
-                    <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
-                    <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
-                    <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
-                    <td class="minus" data-label="BigchainDB">-</td>
-                </tr>
-                <tr>
-                    <td class="table-header">Non-Inclusion Proofs</td>
-                    <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
-                    <td class="minus" data-label="ImmuDB">-</td>
-                    <td class="minus" data-label="ProvenDB">-</td>
-                    <td class="minus" data-label="Trillian">-</td>
-                    <td class="minus" data-label="BigchainDB">-</td>
-                </tr>
-                <tr>
                     <td class="table-header">Complex Queries</td>
                     <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
                     <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
@@ -165,6 +124,22 @@
                 </tr>
                 <tr>
                     <td class="table-header">Query Proofs</td>
+                    <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                    <td class="minus" data-label="ImmuDB">-</td>
+                    <td class="minus" data-label="ProvenDB">-</td>
+                    <td class="minus" data-label="Trillian">-</td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td class="table-header">Inclusion Proofs</td>
+                    <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                    <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
+                    <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
+                    <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
+                    <td class="minus" data-label="BigchainDB">-</td>
+                </tr>
+                <tr>
+                    <td class="table-header">Non-Inclusion Proofs</td>
                     <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
                     <td class="minus" data-label="ImmuDB">-</td>
                     <td class="minus" data-label="ProvenDB">-</td>
@@ -208,10 +183,15 @@
     </div>
   </div>
   <div class="section section-two">
-    <div class="title-background tag">
-        <h2>Design</h2>
-        <p>GroveDB is the first production-level implementation of a hierarchical authenticated data structure (HADS), largely inspired by<a href="/" target="_blank"> Database Outsourcing with Hierarchical Authenticated Data Structures.</a></p>
-    </div>
+      <div class="tag">
+        <div class="title-background">
+            <h2>Design</h2>
+            <p>GroveDB is a "grove" of Merkle trees, where the root hashes of lower-level trees are stored in nodes of higher-level trees, and the root hash of the root tree can be used to prove the state of the entire database.</p>
+        </div>
+        <div class="tree-structure">
+            <img class="tree-structure-img" src="img/image-contract-tree.png">
+        </div>
+      </div>
     <div class="info-blocks tag">
         <div class="index-block">
             <img class="index-img" src="img/img-1.svg">
@@ -229,26 +209,28 @@
     <div class="block-hads tag">
         <div class="text-list">
             <div class="block-text">
-                <h2>What is a HADS?</h2>
-                <p>A HADS is, simply speaking, an ADS (authenticated data structure) containing additional ADSs. This architecture allows GroveDB to efficiently provide cryptographic proofs for secondary index query results.</p>
-                <p>In our case, the HADS is a Merkle tree whose nodes may contain the root hashes of additional Merkle trees which themselves may contain the root hashes of additional Merkle trees and so on. Subtrees can be created for secondary indexes, where each secondary index subtree has additional subtrees for each unique value.</p>          
+                <h2>HADS</h2>
+                <p>GroveDB is the first production-level implementation of a HADS, largely inspired by <a href="https://eprint.iacr.org/2015/351.pdf" target="_blank">Database Outsourcing with Hierarchical Authenticated Data Structures</a>.</p>
+                <p>HADS stands for "hierarchical authenticated data structure". Simply speaking, it's an ADS (authenticated data structure), such as a Merkle tree, which contains additional ADSs.</p>
+                <p>The HADS architecture is what enables GroveDB to be the first database to support proofs for complex queries. Trees can be created for secondary indexes, where each secondary index tree (such as for "city" in a data set of restaurants) has additional subtrees for each unique value (such as "New York City" and "Phoenix"), and the items in that subtree (all the restaurants in New York City or Phoenix) can refer to the records in the primary index tree, where the full data of each item (restaurant) is stored.</p>
             </div> 
             <div class="list-block">   
+                <br>
+                <div class="notes">
+                    <p><strong>Note</strong> that the secondary index trees only contain references to items, rather than the items themselves, for storage space efficiency.</p>
+                </div>
                 <h5>Benefits of a HADS:</h5>
                 <div class="list">
-                    <img src="img/icon-9.svg"><p>Efficient proof generation for complex queries</p>
+                    <img src="img/icon-9.svg"><p>Efficient proofs for complex queries</p>
                 </div>
                 <div class="list">
                     <img src="img/icon-9.svg"><p>Efficient handling of duplicate values</p>
                 </div>
                 <div class="list">
-                    <img src="img/icon-9.svg"><p>Support for compound indexes</p>
+                    <img src="img/icon-9.svg"><p>Different ADS types can be used within the same HADS</p>
                 </div>
                 <div class="list">
-                    <img src="img/icon-9.svg"><p>Secondary index query proofs are finally market-ready</p>
-                </div>
-                <div class="notes">
-                    <p><strong>Note</strong> that the secondary index subtrees contain references to items rather than the items themselves in order to save on storage space.</p>
+                    <img src="img/icon-9.svg"><p>Supports compound indexes</p>
                 </div>
             </div>
         </div>
@@ -535,9 +517,9 @@
   </div>
 </div>  
   <div class="section section-four tag">
-    <h2>What is Merk?</h2>
-    <p class="text-section">Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
-    <a class="button" href="">Read Documentation<img src="img/button-icons.svg"></a>
+    <h2>Merk</h2>
+    <p class="text-section">All trees in GroveDB are Merk trees by default. <br><br> Merk is a Merkle AVL tree designed for performance. Notable features include concurrent operations for higher throughput, an optimized key/value layout for performant usage of the backing store, and efficient proof generation to enable bulk tree replication.</p>
+    <a class="button" href="https://github.com/nomic-io/merk">Read Documentation<img src="img/button-icons.svg"></a>
     <h5>Features of a Merk tree</h5>
     <div class="flex-blocks tag">
         <div class="checkmark-block">
@@ -593,13 +575,15 @@
   </div>
   <div class="section section-six tag">
     <h2>Start using GroveDB today</h2>
-    <a class="button" href="https://github.com/dashpay/grovedb#usage">Get Started<span class="icon-el github"></span></a>
+    <!--to do: link to /documentation/usage-->
+    <a class="button" href="/documentation">Get Started<span class="icon-el github"></span></a>
   </div> 
   <footer class="footer tag" role="contentinfo">
     <div class="block-footer">
         <p class="copy">© 2023 GroveDB</p>
         <p>Designed and constructed by the engineers at <a href="https://www.dash.org/dcg">Dash Core Group</a></p>
         <p>GroveDB is the first database to support cryptographic proofs for complex queries</p>
+        <br/><br/>
     </div>
   </footer>
   <!--Pop-up Blocks-->
@@ -610,9 +594,9 @@
                 <button type="button" class="close full-height" data-dismiss="modal" aria-hidden="true">X</button>
                 <div class="modal-body">
                     <h2>What are secondary indexes?</h2>
-                    <p>Secondary indexes enable clients to execute queries that do things like, for example, retrieve the names of all the restaurants within a given city. The database simply has to navigate to the city index and iterate over the documents/records for the given city.</p>
-                    <p>If a client wanted to perform the same query without secondary indexes, they would need to iterate through every single document/record in the database to check if that restaurant is in that city, and then return the name.</p>
-                    <p>Until now, getting a cryptographic proof with a query on a secondary index wasn’t possible with any existing solution.</p>
+                    <p>Secondary indexes enable queries more complex and intuitive than are possible with primary indexes. Primary index queries look like: "give me keys A201 through A209". Meanwhile, secondary index queries look like: "give me the names of all the restaurants in New York City".</p>
+                    <p>Say there's a database of restaurants. If it has a secondary index for "city", in order to execute "give me the names of all the restaurants in New York City", the database simply has to navigate to the city index and iterate over the records for New York City, returning the restaurant names. A database without secondary indexes would need to iterate over <i>every single record in the database</i> to first check if that restaurant is in New York City, then return the name.</p>
+                    <p>Until now, getting a cryptographic proof with a query on a secondary index wasn’t possible.</p>
                 </div>
             </div>
             <div class="modal-footer"></div>

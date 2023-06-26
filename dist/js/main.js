@@ -75,6 +75,7 @@ $(".tab_drawer_heading").click(function() {
   $("ul.tabs li a").removeClass("selected");
   $("ul.tabs li a[rel^='"+d_activeTab+"']").addClass("selected");
 });
+
 // -- Vanilla JS SVG animation event -- //
 const observer = new IntersectionObserver(entries => {
   // Loop over the entries
