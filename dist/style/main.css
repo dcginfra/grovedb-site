@@ -86,14 +86,14 @@ img.index-img{height: 200px;}
 .tree-structure-img{margin-bottom: 100px;}
 
 /* === Section Two Pop-up Windows ==*/
-.lightbox{display: none;position: fixed;z-index: 999;width: 100%;height: 100%;text-align: center;top: 0;left: 0;background: rgba(0,0,0,0.8);}
+.lightbox{display: none;position: fixed;z-index: 999;width: 100%;height: 100%;text-align: center;top: 0;left: 0;background: rgba(0,0,0,0.8);text-decoration: none;}
 .lightbox:target{outline: none;display: block;}
 #textModal{border-radius: 0;max-width: 870px;margin:auto;}
 #textModal .modal-header{border: 0;color: #fff;position: relative;height:35px; }
 #textModal .modal-header h3{font-size: 18px;line-height: 22px;font-family:Arial, Helvetica, sans-serif;padding:5px;}
-#textModal .modal-body{height: 489px;max-height: none;overflow: hidden;margin: 10% 0;background: #1c3545;border-radius: 50px;padding: 30px 50px;text-align: left; }
+#textModal .modal-body{height: 489px;max-height: none;overflow: auto;margin: 10% 0;background: #1c3545;border-radius: 50px;padding: 30px 50px;text-align: left; }
 #textModal .modal-footer:empty{display: none !important; }
-#textModal .close{background: #ffffff5c;color: #141414;font-size: 18px;margin: 0;opacity: 1;position: absolute;right: 34px;text-shadow: none;top: 34px;width: 30px;border-radius: 59px;border: none;height: 30px;font-weight: 700; }
+#textModal .close{background: #ffffff5c;color: #141414;font-size: 18px;margin: 0;opacity: 1;position: absolute;right: 34px;text-shadow: none;top: 34px;width: 35px;border-radius: 59px;border: none;height: 35px;font-weight: 700; }
 
 /* === Section Three ==*/
 .block-hads{display: flex;justify-content: space-between;align-items: center;margin-bottom: 150px;}
