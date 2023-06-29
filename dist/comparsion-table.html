@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>GroveDB: Tutorials</title>
+</head>
+<body class="tutorials">
+    <header>
+        <nav class="nav toggle">
+            <div class="header-menu">
+              <div class="logo-header logo-mobile">
+                <a href="https://www.grovedb.org/"><img src="img/grovedb-logo.svg"></a>
+              </div>
+              <div class="nav-mobile"><a id="navbar-toggle"><span></span></a></div>
+              <ul class="nav-list">
+                <li><a href="https://www.grovedb.org/#features">Features</a></li>
+                <li><a href="https://www.grovedb.org/#table">Comparison Table</a></li>
+                <li><a href="/documentation.html">Documentation</a></li>
+                <li><a href="/tutorials.html">Tutorials</a></li>
+                <div class="header-social mobile">
+                  <a href="https://www.twitter.com/dashpay">
+                      <div class="icon-el twitter"></div>
+                  </a>
+                  <a href="https://www.github.com/dashpay/grovedb">
+                      <div class="icon-el github"></div>
+                  </a>
+              </div>
+              </ul>
+              <div class="header-social desktop">
+                  <a href="https://www.twitter.com/dashpay">
+                      <div class="icon-el twitter"></div>
+                  </a>
+                  <a href="https://www.github.com/dashpay/grovedb">
+                      <div class="icon-el github"></div>
+                  </a>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <div class="toggle-dn">
+        <img class="sun" src="img/sun.png">
+        <img class="moon" src="img/moon.png">
+        <span class="toggle-mod"></span>
+        <span class="animate-background"></span>
+    </div>
+    <div class="comparsion-block">
+        <div id="table" class="section section-five">
+            <div class="table-block">
+                <h4>Comparison Table</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="blue-back first">GroveDB</th>
+                            <th>Dash Platform</th>
+                            <th>Space and Time</th>
+                            <th>Trillian</th>
+                            <th>ImmuDB</th>
+                            <th>ComposeDB</th>
+                            <th>BigChainDB</th>
+                            <th>ProvenDB</th>
+                            <th>TableLand</th>
+                            <th>Polybase</th>
+                            <th>WeaveDB</th>
+                            <th>Kwil</th>
+                            <th>HollowDB</th>
+                            <th>Glacier</th>
+                            <th>EVM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-header">Inclusion Proofs</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time"><img src="img/icon-9.3.svg"></td>
+                            <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ComposeDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM"><img src="img/icon-9.2.svg"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Non-Inclusion Proofs</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Secondary Indexes</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.3.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ComposeDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="BigChainDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="TableLand"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Polybase"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="WeaveDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Kwil"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="HollowDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Glacier"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Complex Query Proofs</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.3.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Proof Aggregation</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time"><img src="img/icon-9.3.svg"></td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Operation Cost Decomposition</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM"><img src="img/icon-9.2.svg"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Operation Cost Estimation</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB">-</td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Data Immutability</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ComposeDB">-</td>
+                            <td class="plus" data-label="BigChainDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="TableLand">-</td>
+                            <td class="plus" data-label="Polybase">-</td>
+                            <td class="plus" data-label="WeaveDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Kwil"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="HollowDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Glacier"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="EVM"><img src="img/icon-9.2.svg"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Data Mutability</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Trillian">-</td>
+                            <td class="plus" data-label="ImmuDB">-</td>
+                            <td class="plus" data-label="ComposeDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="BigChainDB">-</td>
+                            <td class="plus" data-label="ProvenDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="TableLand"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Polybase"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="WeaveDB">-</td>
+                            <td class="plus" data-label="Kwil">-</td>
+                            <td class="plus" data-label="HollowDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Glacier">-</td>
+                            <td class="plus" data-label="EVM">-</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Open-Source</td>
+                            <td class="plus blue-back" data-label="GroveDB"><img src="img/icon-9.svg"></td>
+                            <td class="plus" data-label="Dash Platform"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Space and Time">-</td>
+                            <td class="plus" data-label="Trillian"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ImmuDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ComposeDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="BigChainDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="ProvenDB">-</td>
+                            <td class="plus" data-label="TableLand"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Polybase"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="WeaveDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Kwil"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="HollowDB"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="Glacier"><img src="img/icon-9.2.svg"></td>
+                            <td class="plus" data-label="EVM"><img src="img/icon-9.2.svg"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Cost to Use</td>
+                            <td class="text blue-back" data-label="GroveDB">Free</td>
+                            <td class="text" data-label="Dash Platform">Fee per operation</td>
+                            <td class="text" data-label="Space and Time">$700+/month for 5 TB</td>
+                            <td class="text" data-label="Trillian">Free</td>
+                            <td class="text" data-label="ImmuDB">Free</td>
+                            <td class="text" data-label="ComposeDB">Subsidized for now</td>
+                            <td class="text" data-label="BigChainDB">Free</td>
+                            <td class="text" data-label="ProvenDB">Paid, 1 GB free</td>
+                            <td class="text" data-label="TableLand">Fee per operation</td>
+                            <td class="text" data-label="Polybase">Expected similar to Firestore</td>
+                            <td class="text" data-label="WeaveDB">Arweave fees</td>
+                            <td class="text" data-label="Kwil">Arweave fees</td>
+                            <td class="text" data-label="HollowDB">Arweave fees</td>
+                            <td class="text" data-label="Glacier">Arweave fees</td>
+                            <td class="text" data-label="EVM">Fee per operation</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Network Architecture</td>
+                            <td class="text blue-back" data-label="GroveDB">Standalone</td>
+                            <td class="text" data-label="Dash Platform">P2P network</td>
+                            <td class="text" data-label="Space and Time">Private network for now</td>
+                            <td class="text" data-label="Trillian">Standalone</td>
+                            <td class="text" data-label="ImmuDB">Standalone</td>
+                            <td class="text" data-label="ComposeDB">Built on Ceramic</td>
+                            <td class="text" data-label="BigChainDB">Standalone</td>
+                            <td class="text" data-label="ProvenDB">Private servers</td>
+                            <td class="text" data-label="TableLand">Hybrid on/off chain</td>
+                            <td class="text" data-label="Polybase">P2P network</td>
+                            <td class="text" data-label="WeaveDB">Built on Arweave</td>
+                            <td class="text" data-label="Kwil">Built on Arweave</td>
+                            <td class="text" data-label="HollowDB">Built on Arweave</td>
+                            <td class="text" data-label="Glacier">Built on Arweave</td>
+                            <td class="text" data-label="EVM">P2P network</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Query Language</td>
+                            <td class="text blue-back" data-label="GroveDB">NoSQL</td>
+                            <td class="text" data-label="Dash Platform">NoSQL Interface over HTTP</td>
+                            <td class="text" data-label="Space and Time">SQL</td>
+                            <td class="text" data-label="Trillian">SQL</td>
+                            <td class="text" data-label="ImmuDB">NoSQL + SQL</td>
+                            <td class="text" data-label="ComposeDB">GraphQL</td>
+                            <td class="text" data-label="BigChainDB">NoSQL</td>
+                            <td class="text" data-label="ProvenDB">NoSQL</td>
+                            <td class="text" data-label="TableLand">SQL</td>
+                            <td class="text" data-label="Polybase">NoSQL</td>
+                            <td class="text" data-label="WeaveDB">NoSQL</td>
+                            <td class="text" data-label="Kwil">SQL</td>
+                            <td class="text" data-label="HollowDB">GraphQL</td>
+                            <td class="text" data-label="Glacier">GraphQL, REST</td>
+                            <td class="text" data-label="EVM">Key-Value</td>
+                        </tr>
+                        <tr>
+                            <td class="table-header">Language</td>
+                            <td class="text blue-back" data-label="GroveDB">Rust</td>
+                            <td class="text" data-label="Dash Platform">Rust</td>
+                            <td class="text" data-label="Space and Time">?</td>
+                            <td class="text" data-label="Trillian">Go</td>
+                            <td class="text" data-label="ImmuDB">Go</td>
+                            <td class="text" data-label="ComposeDB">JavaScript</td>
+                            <td class="text" data-label="BigChainDB">Python</td>
+                            <td class="text" data-label="ProvenDB">Javascript</td>
+                            <td class="text" data-label="TableLand">JavaScript, Go</td>
+                            <td class="text" data-label="Polybase">JavaScript</td>
+                            <td class="text" data-label="WeaveDB">JavaScript</td>
+                            <td class="text" data-label="Kwil">JavaScript</td>
+                            <td class="text" data-label="HollowDB">JavaScript</td>
+                            <td class="text" data-label="Glacier">JavaScript</td>
+                            <td class="text" data-label="EVM">Go</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+    </div>
+    <footer class="footer" role="contentinfo">
+        <div class="block-footer">
+            <p class="copy">© 2023 GroveDB</p>
+            <p>Designed and constructed by the engineers at <a href="https://www.dash.org/dcg">Dash Core Group</a></p>
+            <p>GroveDB is the first database to support cryptographic proofs for complex queries</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='js/main.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script type='text/javascript' src='js/docs.js'></script> 
+</body>
+</html>
