@@ -234,7 +234,7 @@ Ok(item: [hex: 726f636b73, str: rocks])
                     <pre><code>
 impl Element {
     /// Set element to an item with a default flag value
-    pub fn new_item(item_value: Vec&lt;u8>) -> Self {
+    pub fn new_item(item_value: Vec&lt;u8&gt;) -&gt; Self {
         Element::Item(item_value, None)
     }
 }                            
@@ -271,7 +271,7 @@ pub fn delete&lt;'p, P&gt;(
                     </code></pre>
                     <p>This tutorial inserts two key-values in the same way as the Insert Tutorial, 
                         uses <code>get()</code> to check if the values are there, deletes them, and checks if 
-                        they’re there again.</p>
+                        they're there again.</p>
                     <p>The following code can be run with cargo <code>run --bin delete</code>.</p>
                     <pre><code>
 use grovedb::GroveDb;
@@ -458,7 +458,7 @@ pub struct SubqueryBranch {
                         query results can be cryptographically proven.</p>
                     <pre><code>
 /// Get an element from the backing store
-pub fn get&lt;'p, P>(
+pub fn get&lt;'p, P&gt;(
     &self,
     path: P,
     key: &'p [u8],
@@ -489,7 +489,7 @@ const KEY2: &[u8] = b"key2";
 
 // Allow insertions to overwrite trees
 // This is necessary so the tutorial can be rerun easily
-const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+const INSERT_OPTIONS: Option&lt;InsertOptions&gt; = Some(InsertOptions {
     validate_insertion_does_not_override: false,
     validate_insertion_does_not_override_tree: false,
     base_root_storage_is_free: true,
@@ -616,7 +616,7 @@ const KEY3: &[u8] = b"key3";
 
 // Allow insertions to overwrite trees
 // This is necessary so the tutorial can be rerun easily
-const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+const INSERT_OPTIONS: Option&lt;InsertOptions&gt; = Some(InsertOptions {
     validate_insertion_does_not_override: false,
     validate_insertion_does_not_override_tree: false,
     base_root_storage_is_free: true,
@@ -804,7 +804,7 @@ const KEY2: &[u8] = b"key2";
 
 // Allow insertions to overwrite trees
 // This is necessary so the tutorial can be rerun easily
-const INSERT_OPTIONS: Option&lt;InsertOptions> = Some(InsertOptions {
+const INSERT_OPTIONS: Option&lt;InsertOptions&gt; = Some(InsertOptions {
     validate_insertion_does_not_override: false,
     validate_insertion_does_not_override_tree: false,
     base_root_storage_is_free: true,
@@ -899,6 +899,6 @@ Yes
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type='text/javascript' src='js/main.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script type='text/javascript' src='js/docs.js'></script>  
+    <script type='text/javascript' src='js/docs.js'></script> 
 </body>
 </html>
